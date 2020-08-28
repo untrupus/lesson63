@@ -1,0 +1,15 @@
+.info {
+    font-size: 18px;
+    width: 600px;
+}
+
+.aboutEdit {
+    resize: none;
+    width: 600px;
+    height: 200px;
+    margin: 20px 0;
+}
+
+.btn {
+    display: block;
+}

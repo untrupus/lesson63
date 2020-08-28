@@ -27,8 +27,7 @@ const Posts = () => {
         );
     } else {
         const responseData = Object.entries(posts);
-        postFeed = responseData.map(post => {
-            return (
+        postFeed = responseData.map(post => (
                 <PostAtHome
                     key={post[0]}
                     title={post[1].title}
@@ -36,7 +35,7 @@ const Posts = () => {
                     date={post[1].date}
                 />
             )
-        });
+        );
     }
 
     let preloader = postFeed;
