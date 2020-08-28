@@ -10,22 +10,31 @@ const Posts = () => {
         const fetchData = async () => {
             const response = await axiosOrders.get('/posts.json');
             const newPosts = response.data;
-            setPosts(newPosts);
+            if (newPosts !== null) {
+                setPosts(newPosts);
+            }
         }
         fetchData().catch(console.error);
     }, []);
 
-    const responseData = Object.entries(posts);
-    const postFeed = responseData.map(post => {
-        return (
-            <PostAtHome
-                key={post[0]}
-                title={post[1].title}
-                id={post[0]}
-                date={post[1].date}
-            />
-        )
-    });
+    let postFeed;
+    if (Object.keys(posts).length === 0) {
+        postFeed = (
+            <h1>Add your first post...</h1>
+        );
+    } else {
+        const responseData = Object.entries(posts);
+        postFeed = responseData.map(post => {
+            return (
+                <PostAtHome
+                    key={post[0]}
+                    title={post[1].title}
+                    id={post[0]}
+                    date={post[1].date}
+                />
+            )
+        });
+    }
 
     return (
         <div className="container">

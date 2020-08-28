@@ -18,9 +18,17 @@ const SinglePost = props => {
         try {
             await axiosOrders.delete('/posts/' + props.match.params.id + '.json');
         } finally {
-            console.log('success')
+            props.history.push({
+                pathname: '/posts'
+            });
         }
-    }
+    };
+
+    const editHandler = () => {
+        props.history.push({
+            pathname: '/posts/' + props.match.params.id + '/edit'
+        });
+    };
 
     return (
         <div className="container singlePost">
@@ -31,10 +39,9 @@ const SinglePost = props => {
                 type="button"
                 className="btn"
                 onClick={removePost}>
-                {/*<NavLink to="/"*/}
-                {/*>Remove</NavLink>*/}
+                Remove
                 </button>
-            <button type="button" className="btn">Edit</button>
+            <button type="button" className="btn" onClick={editHandler}>Edit</button>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './AddPost.css';
 import axiosOrders from "../../axiosOrders";
 
-const AddPost = () => {
+const AddPost = props => {
     const [post, setPost] = useState({
         title: '',
         description: '',
@@ -22,14 +22,19 @@ const AddPost = () => {
 
     const makePost = async () => {
         const postCopy = {...post};
-        console.log(postCopy);
         try {
-            await axiosOrders.post('/posts.json', postCopy);
+            if (postCopy.title !== '' && postCopy.description !== '') {
+                await axiosOrders.post('/posts.json', postCopy);
+                props.history.push({
+                    pathname: '/posts'
+                });
+            } else {
+                alert('Fill in all fields');
+            }
         } finally {
-            console.log('success')
+            console.log('success');
         }
-
-    }
+    };
 
     return (
         <div className="container">
