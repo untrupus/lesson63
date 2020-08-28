@@ -44,7 +44,6 @@ const EditPost = props => {
         }
     };
 
-
     return (
         <div className="container">
             <h2>Edit post</h2>

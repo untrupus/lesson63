@@ -4,10 +4,10 @@ import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import NavBar from "../components/NavBar/NavBar";
 import Contacts from "../components/Contacts/Contacts";
 import About from "../components/About/About";
-import Posts from "../components/Posts/Posts";
+import Posts from "./Posts/Posts";
 import AddPost from "../components/AddPost/AddPost";
-import SinglePost from "../components/SinglePost/SinglePost";
-import EditPost from "../components/EditPost/EditPost";
+import SinglePost from "./SinglePost/SinglePost";
+import EditPost from "./EditPost/EditPost";
 
 function App() {
   return (
