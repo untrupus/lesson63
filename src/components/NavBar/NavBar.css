@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav li {
+    display: inline-block;
+    padding-right: 40px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0 40px 0;
+}
+
+.main-nav .navLink {
+    color: #868686;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
