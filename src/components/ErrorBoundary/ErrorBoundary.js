@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axiosOrders from "../../axiosOrders";
 
 class ErrorBoundary extends Component {
     state = {
@@ -6,8 +7,10 @@ class ErrorBoundary extends Component {
         errorMessage: ''
     };
 
-    componentDidCatch(error, errorInfo) {
+    componentDidCatch = async (error, errorInfo) => {
         this.setState({hasError: true, errorMessage: error});
+        const errorText = {error: errorInfo.componentStack};
+        await axiosOrders.post('/errors.json', errorText);
     }
 
     render() {

@@ -36,7 +36,7 @@ const Posts = () => {
         );
     }
 
-    if (Math.random() > 0.7) throw new Error('Oops...');
+    if (Math.random() > 0.9) throw new Error('Oops...');
 
     return (
         <div className="container">
