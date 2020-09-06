@@ -27,7 +27,6 @@ const withLoader = (WrappedComponent, axios) => {
             return () => axios.interceptors.response.eject(icRes);
         }, [icRes]);
 
-
         return (
             <>
                 {spinner ? <Spinner/> : null}
