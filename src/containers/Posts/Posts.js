@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import './Posts.css';
+import withLoader from '../../hoc/withLoader/withLoader'
 import axiosOrders from "../../axiosOrders";
 import PostAtHome from "../../components/PostAtHome/PostAtHome";
-import Spinner from "../../components/Spinner/Spinner";
 
 const Posts = () => {
     const [posts, setPosts] = useState({});
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,7 +14,6 @@ const Posts = () => {
             if (newPosts !== null) {
                 setPosts(newPosts);
             }
-            setLoading(false);
         }
         fetchData().catch(console.error);
     }, []);
@@ -38,16 +36,11 @@ const Posts = () => {
         );
     }
 
-    let preloader = postFeed;
-    if (loading) {
-        preloader = <Spinner/>
-    }
-
     return (
         <div className="container">
-            {preloader}
+            {postFeed}
         </div>
     );
 };
 
-export default Posts;
+export default withLoader(Posts, axiosOrders);

@@ -8,28 +8,12 @@ const NavBar = () => {
             <h1>My Blog</h1>
             <nav className="main-nav">
                 <ul>
-                    <li><NavLink to="/posts"
+                    <li><NavLink to="/posts" exact
                                  className="navLink"
-
+                                 activeStyle={{
+                                    fontWeight: "bold",
+                                }}
                     >Home</NavLink></li>
-                    <li><NavLink to="/posts/add"
-                                 className="navLink"
-                                 activeStyle={{
-                                     fontWeight: "bold",
-                                 }}
-                    >Add</NavLink></li>
-                    <li><NavLink to="/about"
-                                 className="navLink"
-                                 activeStyle={{
-                                     fontWeight: "bold",
-                                 }}
-                    >About</NavLink></li>
-                    <li><NavLink to="/contacts"
-                                 className="navLink"
-                                 activeStyle={{
-                                     fontWeight: "bold",
-                                 }}
-                    >Contacts</NavLink></li>
                 </ul>
             </nav>
         </div>
